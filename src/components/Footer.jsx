@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="border-b border-[#1C1C1C] py-10">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-widest uppercase">
-            Broadway <span className="text-[#D70C09]">Remapping</span>
+            Carbon  <span className="text-[#D70C09]">Cleaning</span>
           </h2>
           <p className="text-[#868386] mt-3 max-w-xl mx-auto">
             Performance tuning, emissions solutions & professional ECU services
