@@ -18,16 +18,11 @@ export default function GalleryCoverflow() {
   }, []);
 
   const images = [
-    "https://images.pexels.com/photos/2127039/pexels-photo-2127039.jpeg",
-    "https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg",
-    "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg",
-    "https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg",
-    "https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg",
-    "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg",
-    "https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg",
-    "https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg",
-    "https://images.pexels.com/photos/193999/pexels-photo-193999.jpeg",
-    "https://images.pexels.com/photos/248747/pexels-photo-248747.jpeg",
+    "im.jpg",
+    "im1.jpg",
+    "im2.jpg",
+    "im3.jpg",
+    "im4.jpg",
   ];
 
   return (
