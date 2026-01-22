@@ -6,34 +6,24 @@ import "aos/dist/aos.css";
 
 const reviews = [
   {
-    name: "Lee Patrick",
-    text:
-      "Amazing difference after remap — more power and better fuel economy. Fantastic service and great communication.",
+    name: "Gareth Murchie",
+    text: "Had my Merc SLK250CDI 360 cleaned today (Carbon Clean plus Fuel System Clean). Car runs smoother and quieter and the clean also got rid of a fault code caused by a clogged swirl flap. Very friendly, professional and good value for money too. Would definitely recommend.",
   },
   {
-    name: "Tony Roberts",
-    text:
-      "Loss of power fixed in under an hour. Car now drives perfectly and is more economical. Highly recommended.",
+    name: "Jason Perry",
+    text: "Just had Darren out to sort my corsa diesel van out, great guy arrived on time the van is now perfect highly recommend.",
   },
   {
-    name: "Scott Williams",
-    text:
-      "Second remap done here. Only person I recommend to my club members. Top quality work.",
+    name: "Azeem",
+    text: "I was recommended Nottingham Carbon Cleaning Solutions by a friend. I got my C250d done achieved extra 7mpg the engine is super quiet now. Was super happy with the service I received. Today i got my Mercedes Vito dpf cleaned it drives perfectly. Top bloke really kind and helpful much appreciated. No pressure sales or tactics involved. 100% honest guy so ill be recommending to all friends and family.",
   },
   {
-    name: "James Burns",
-    text:
-      "Very knowledgeable and reliable. Van has been running perfectly since the work.",
+    name: "Stacey Turner",
+    text: "Came today with blocked dpf filter, was sorted within a couple of hours, very professional and competitively priced. Would recommend.",
   },
   {
-    name: "Emma Raistrick",
-    text:
-      "Really happy with the results. More power and smooth driving. Would definitely use again.",
-  },
-  {
-    name: "Jennie Burns",
-    text:
-      "Much better service than the dealership. Engine running perfectly now.",
+    name: "Kaitlyn Mepstead",
+    text: "Notts Carbon cleaning did a great job, he was friendly, reliable and came out the same day as my initial call. I 100% recommend.",
   },
 ];
 

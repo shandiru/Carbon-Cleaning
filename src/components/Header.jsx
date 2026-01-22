@@ -23,16 +23,16 @@ export default function Header() {
           {/* LOGO / BUSINESS NAME */}
           <div className="flex items-center gap-3">
             <img
-              src="/logo.png"
+              src="/carlogo.jpg"
               alt="Nottingham Carbon Cleaning"
-              className="h-12 w-auto"
+              className="h-20 w-auto rounded-full"
             />
            
           </div>
 
           {/* DESKTOP NAV */}
           <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold uppercase">
-            <HashLink to="/#home" scroll={scrollWithOffset} className="text-gray-300 hover:text-white">
+            <HashLink to="/" scroll={scrollWithOffset} className="text-gray-300 hover:text-white">
               Home
             </HashLink>
             <HashLink to="/#services" scroll={scrollWithOffset} className="text-gray-300 hover:text-white">

@@ -77,11 +77,10 @@ const TermsConditions = () => {
                           If you have any questions about these Terms of Use, please contact us:
                       </p>
                       <div className="text-white">
-                         <p><strong>BROADWAY REMAPPING</strong></p>
-                        <p>Email: <a href="mailto:yandmjones@outlook.com" className="text-red-400 hover:underline">yandmjones@outlook.com</a></p>
-                        <p>Phone: +44 7392 791919</p>
-                        <p>Address: Que Sera, Pentre Hill,
-Flint Mountain, Flint, United Kingdom</p>
+                         <p><strong> Nottingham Carbon Cleaning Solutions</strong></p>
+                        <p>Email: <a href="mailto:na@gmail.com" className="text-red-400 hover:underline">na@gmail.com</a></p>
+                        <p>Phone: +44 7752 549740</p>
+                        <p>Address: Wendling Gardens, Nottingham NG5 5TD, United Kingdom</p>
                       </div>
                   </section>
               </div>

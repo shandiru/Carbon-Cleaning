@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaPhoneAlt, FaMapMarkerAlt, FaClock, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaPhoneAlt, FaMapMarkerAlt, FaClock, FaFacebookF } from "react-icons/fa";
 
 export default function ContactSection() {
   const [form, setForm] = useState({
@@ -17,7 +17,8 @@ export default function ContactSection() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const number = "447392791919";
+    // Updated WhatsApp number for Nottingham Carbon Cleaning Solutions
+    const number = "447752549740";
     const text = `Name: ${form.name}%0APhone: ${form.phone}%0AVehicle: ${form.vehicle}%0AMessage: ${form.message}`;
 
     window.open(`https://wa.me/${number}?text=${text}`, "_blank");
@@ -39,8 +40,8 @@ export default function ContactSection() {
           <div className="w-24 h-[3px] bg-[#D70C09] mt-4 mb-8" />
 
           <p className="text-[#C0C0C0] max-w-md leading-relaxed mb-10">
-            Speak directly with our team. No call centres, no delays — just
-            honest advice and professional service.
+            Speak directly with Nottingham Carbon Cleaning Solutions. No call centres, 
+            no delays — just honest advice and professional service.
           </p>
 
           {/* INFO BLOCKS */}
@@ -49,27 +50,27 @@ export default function ContactSection() {
             <div className="flex gap-4 items-start">
               <FaMapMarkerAlt className="text-[#D70C09] mt-1" />
               <p className="text-[#C0C0C0]">
-                Que Sera, Pentre Hill<br />
-                Flint Mountain, United Kingdom
+                Wendling Gardens<br />
+                Nottingham NG5 5TD, United Kingdom
               </p>
             </div>
 
             <div className="flex gap-4 items-center">
               <FaPhoneAlt className="text-[#D70C09]" />
               <a
-                href="tel:07392791919"
+                href="tel:+447752549740"
                 className="hover:text-[#D70C09] transition"
               >
-                07392 791919
+                07752 549740
               </a>
             </div>
 
             <div className="flex gap-4 items-start">
               <FaClock className="text-[#D70C09] mt-1" />
               <ul className="text-[#C0C0C0] text-sm space-y-1">
-                <li>Mon – Fri: 8:00 AM – 8:00 PM</li>
-                <li>Saturday: 9:00 AM – 5:00 PM</li>
-                <li>Sunday: 9:00 AM – 2:00 PM</li>
+                <li>Mon – Fri: 9:00 AM – 5:00 PM</li>
+                <li>Saturday: 9:00 AM – 2:00 PM</li>
+                <li>Sunday: Closed</li>
               </ul>
             </div>
           </div>
@@ -77,18 +78,12 @@ export default function ContactSection() {
           {/* SOCIAL */}
           <div className="flex gap-5 mt-10 text-xl">
             <a
-              href="https://web.facebook.com/profile.php?id=100037206957303"
+              href="https://web.facebook.com/NottinghamCarbonCleaningSolutions/"
               target="_blank"
-              className="hover:text-[#D70C09]"
+              rel="noopener noreferrer"
+              className="hover:text-[#D70C09] transition"
             >
               <FaFacebookF />
-            </a>
-            <a
-              href="https://www.instagram.com/broadway_remapping_/"
-              target="_blank"
-              className="hover:text-[#D70C09]"
-            >
-              <FaInstagram />
             </a>
           </div>
         </div>
@@ -111,7 +106,7 @@ export default function ContactSection() {
               placeholder="Your name"
               required
               onChange={handleChange}
-              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm"
+              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm focus:outline-none focus:border-[#D70C09]"
             />
 
             <input
@@ -120,7 +115,7 @@ export default function ContactSection() {
               placeholder="Phone number"
               required
               onChange={handleChange}
-              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm"
+              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm focus:outline-none focus:border-[#D70C09]"
             />
 
             <input
@@ -128,7 +123,7 @@ export default function ContactSection() {
               name="vehicle"
               placeholder="Vehicle registration"
               onChange={handleChange}
-              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm"
+              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm focus:outline-none focus:border-[#D70C09]"
             />
 
             <textarea
@@ -137,7 +132,7 @@ export default function ContactSection() {
               placeholder="How can we help?"
               required
               onChange={handleChange}
-              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm"
+              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm focus:outline-none focus:border-[#D70C09]"
             />
 
             <button
@@ -155,6 +150,9 @@ export default function ContactSection() {
 
             <p className="text-xs text-[#868386] text-center">
               Your details are used only to respond to your enquiry.
+            </p>
+             <p className="text-xs text-[#868386] text-center">
+            By submitting this form, you agree to us processing your details to respond to your enquiry. Your information is handled securely and in line with our Privacy Policy.
             </p>
           </form>
         </div>
