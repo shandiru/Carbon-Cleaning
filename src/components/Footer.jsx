@@ -18,7 +18,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-black text-white font-['Oswald'] border-t border-[#1C1C1C]">
+    <footer className="bg-black text-white  border-t border-[#1C1C1C]">
       {/* ================= TOP BRAND STRIP ================= */}
       <div className="border-b border-[#1C1C1C] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">

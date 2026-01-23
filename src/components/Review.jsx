@@ -57,7 +57,7 @@ export default function ReviewsCarousel() {
   return (
     <section
       id="testimonials"
-      className="bg-black py-24 text-white font-['Oswald']"
+      className="bg-black py-24 text-white "
     >
       {/* HEADER */}
       <div className="max-w-6xl mx-auto px-6 text-center mb-14" data-aos="fade-up">

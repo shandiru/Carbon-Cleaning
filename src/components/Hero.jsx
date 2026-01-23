@@ -18,7 +18,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen py-30 bg-black text-white font-['Oswald'] flex items-center"
+      className="relative min-h-screen py-30 bg-black text-white  flex items-center"
     >
       {/* Background */}
       <div className="absolute inset-0">

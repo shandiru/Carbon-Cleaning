@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why"
-      className="bg-black text-white font-['Oswald'] py-24 px-6 md:px-12"
+      className="bg-black text-white  py-24 px-6 md:px-12"
     >
       <div className="max-w-6xl mx-auto">
 

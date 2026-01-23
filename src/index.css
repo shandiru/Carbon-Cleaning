@@ -1,9 +1,15 @@
 /* index.css */
 @import "tailwindcss";
 
-/* make `dark:` respond to .dark on <html> */
-@custom-variant dark (&:where(.dark, .dark *));  /* <-- add this line */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Extra safety – even if Tailwind overrides */
 body {
-  font-family: 'Oswald', sans-serif;
+  font-family: ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
 }

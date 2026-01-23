@@ -48,7 +48,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="bg-black text-white font-['Oswald'] py-28 px-4 sm:px-6"
+      className="bg-black text-white  py-28 px-4 sm:px-6"
     >
       <div className="max-w-7xl mx-auto">
 

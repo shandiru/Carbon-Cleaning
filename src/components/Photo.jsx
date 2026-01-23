@@ -28,7 +28,7 @@ export default function GalleryCoverflow() {
   return (
     <section
       id="gallery"
-      className="bg-black text-white py-24 font-['Oswald']"
+      className="bg-black text-white py-24 "
     >
       {/* HEADER */}
       <div className="text-center max-w-5xl mx-auto px-6 mb-14">

@@ -17,7 +17,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="bg-black text-white font-['Oswald'] py-24 px-6 md:px-12"
+      className="bg-black text-white  py-24 px-6 md:px-12 font-sans"
     >
       <div className="max-w-7xl mx-auto">
 
