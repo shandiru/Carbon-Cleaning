@@ -14,7 +14,7 @@ export default function VehicleSearch() {
     <section className="w-full min-h-screen flex items-center justify-center bg-black px-6">
       <div className="text-center space-y-8 max-w-lg" data-aos="fade-up">
         {/* Logo */}
-        <img src="/logo.png" alt="Logo" className="mx-auto w-48 md:w-64 opacity-90" />
+        <img src="/logo.png" alt="Logo" loading="lazy" className="mx-auto w-48 md:w-64 opacity-90" />
 
         {/* Heading */}
         <h1 className="text-3xl md:text-4xl font-bold text-gray-300">

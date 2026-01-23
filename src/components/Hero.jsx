@@ -24,6 +24,7 @@ export default function HeroSection() {
           src="/hero-engine.jpg"
           alt="Carbon Cleaning"
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-black/75"></div>
       </div>

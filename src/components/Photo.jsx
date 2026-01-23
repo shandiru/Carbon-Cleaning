@@ -75,6 +75,7 @@ export default function GalleryCoverflow() {
                 <img
                   src={src}
                   alt="Workshop"
+                  loading="lazy"
                   className="w-full h-[420px] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 

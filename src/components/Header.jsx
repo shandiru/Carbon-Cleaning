@@ -26,6 +26,7 @@ export default function Header() {
               src="/carlogo.jpg"
               alt="Nottingham Carbon Cleaning"
               className="h-20 w-auto rounded-full"
+              loading="lazy"
             />
            
           </div>
