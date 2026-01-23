@@ -1,4 +1,4 @@
-"use client";
+ 
 
 import React, { useEffect } from "react";
 import AOS from "aos";
@@ -13,9 +13,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 
 export default function GalleryCoverflow() {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
+  
 
   const images = [
     "im.jpg",

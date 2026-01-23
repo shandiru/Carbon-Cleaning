@@ -1,8 +1,7 @@
-"use client";
+ 
 
 import React, { useEffect, useRef, useState } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 const reviews = [
   {
@@ -33,7 +32,7 @@ export default function ReviewsCarousel() {
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+   
 
     const track = trackRef.current;
     let scrollPos = 0;

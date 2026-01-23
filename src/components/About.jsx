@@ -1,19 +1,11 @@
-"use client";
+ 
 
 import React, { useEffect } from "react";
 import { FaMapMarkerAlt, FaClock, FaTools } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 export default function AboutSection() {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-out-quart",
-      once: true,
-    });
-  }, []);
-
+ 
   return (
     <section
       id="about"

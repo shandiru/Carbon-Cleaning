@@ -1,17 +1,10 @@
-"use client";
+ 
 
 import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 export default function VehicleSearch() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-out-quart",
-      once: true,
-    });
-  }, []);
+
 
   const handleClick = () => {
     window.location.href = "https://viezu.com/dealer?id=eaa32c96f620053cf442ad32258076b9";

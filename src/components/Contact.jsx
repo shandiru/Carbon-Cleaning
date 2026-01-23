@@ -1,4 +1,4 @@
-"use client";
+ 
 
 import React, { useState } from "react";
 import { FaPhoneAlt, FaMapMarkerAlt, FaClock, FaFacebookF } from "react-icons/fa";

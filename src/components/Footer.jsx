@@ -1,4 +1,4 @@
-"use client";
+ 
 
 import React from "react";
 import { Facebook, MapPin, Phone, Mail, ChevronRight } from "lucide-react";
