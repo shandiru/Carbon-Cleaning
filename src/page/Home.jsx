@@ -16,7 +16,7 @@ const Home = () => {
             <About />
             <WhyChooseUs />
             <Review />
-            <FetchGoogleReviews />
+            {/* <FetchGoogleReviews /> */}
             < Gallery />
           
            
