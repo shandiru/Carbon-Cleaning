@@ -6,7 +6,7 @@ import Review from "../components/Review";
 import Contact from "../components/Contact";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Gallery from "../components/Photo"
-
+import FetchGoogleReviews from "../components/Dymicreview"
 const Home = () => {
     return (
         <div>
@@ -16,6 +16,7 @@ const Home = () => {
             <About />
             <WhyChooseUs />
             <Review />
+            <FetchGoogleReviews />
             < Gallery />
           
            
