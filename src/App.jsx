@@ -14,7 +14,7 @@ import GDPRBanner from "./components/GDPRBanner";
 import Home from "./page/Home";
 import TermsConditions from "./components/Term";
 import PrivacyPolicy from "./components/PrivacyPolicy";
-
+import Chatbot from "./components/Chatbot";
 function App() {
   useEffect(() => {
     AOS.init({
@@ -28,6 +28,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <Chatbot />
       <Header />
 
       <Routes>

@@ -59,7 +59,7 @@ export default function ReviewsCarousel() {
       className="bg-black py-24 text-white "
     >
       {/* HEADER */}
-      <div className="max-w-6xl mx-auto px-6 text-center mb-14" data-aos="fade-up">
+      <div className="max-w-6xl mx-auto px-6 text-center mb-14" >
         <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-widest">
           Customer <span className="text-red-600">Reviews</span>
         </h2>

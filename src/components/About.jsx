@@ -14,7 +14,7 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}
-        <div className="mb-16" data-aos="fade-up">
+        <div className="mb-16" >
           <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-widest">
             About <span className="text-red-600">Nottingham Carbon Cleaning</span>
           </h2>
@@ -25,7 +25,7 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
 
           {/* LEFT BLOCK */}
-          <div data-aos="fade-right">
+          <div >
             <p className="text-[#C0C0C0] leading-relaxed mb-6">
               Welcome to Nottingham Carbon Cleaning – your mobile engine care
               specialists. We provide professional engine carbon cleaning
@@ -47,7 +47,7 @@ export default function AboutSection() {
           </div>
 
           {/* RIGHT BLOCK */}
-          <div data-aos="fade-left" className="space-y-6">
+          <div  className="space-y-6">
 
             <div className="border border-[#2A2A2A] p-6">
               <p className="uppercase tracking-wide font-semibold mb-2">
@@ -84,7 +84,7 @@ export default function AboutSection() {
         {/* FACT STRIP */}
         <div
           className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center"
-          data-aos="fade-up"
+          
         >
           <div className="border border-[#2A2A2A] py-6">
             <FaTools className="mx-auto text-red-600 text-3xl mb-3" />
@@ -109,7 +109,7 @@ export default function AboutSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-20 text-center" data-aos="fade-up">
+        <div className="mt-20 text-center" >
           <a
             href="tel:07752549740"
             className="inline-block bg-red-600 hover:bg-red-700 px-12 py-3 uppercase tracking-wide font-semibold transition"
