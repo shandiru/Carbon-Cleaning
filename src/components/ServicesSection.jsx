@@ -1,4 +1,3 @@
- 
 import React, { useState } from "react";
 
 const services = [
@@ -48,18 +47,27 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="bg-black text-white  py-28 px-4 sm:px-6"
+      className="bg-black text-white py-28 px-4 sm:px-6"
     >
       <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}
         <div className="mb-16 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold uppercase tracking-widest">
-            Service <span className="text-red-600">Breakdown</span>
+            Service <span className="text-[#B62025] dark:text-[#FF4B4B]">Breakdown</span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
             Fully mobile engine carbon cleaning within 20 miles of NG5 5TD.
           </p>
+
+          {/* ADDED IMAGE HERE */}
+          <div className="mt-8 flex justify-center">
+            <img 
+              src="/serviceimage.jpeg" // Replace with your actual path
+              alt="Engine Service" 
+              className="w-full max-w-3xl rounded-lg border border-gray-800 shadow-2xl shadow-red-900/20"
+            />
+          </div>
         </div>
 
         {/* SPLIT LAYOUT */}
@@ -74,7 +82,7 @@ export default function ServicesSection() {
                 className={`w-full text-left uppercase tracking-wide text-xl sm:text-2xl font-semibold py-4 border-l-4 pl-4 transition-all
                   ${
                     active === i
-                      ? "border-red-600 text-white bg-red-600/10"
+                      ? "border-[#B62025] dark:border-[#FF4B4B] text-white bg-[#B62025]/10 dark:bg-[#FF4B4B]/10"
                       : "border-gray-700 text-gray-500 hover:text-white"
                   }
                 `}
@@ -86,9 +94,7 @@ export default function ServicesSection() {
 
           {/* RIGHT DETAIL PANEL */}
           <div className="relative">
-
             <div className="border border-gray-700 p-8 min-h-[260px] flex flex-col justify-between bg-black/60">
-
               <div>
                 <h3 className="text-3xl uppercase font-bold tracking-wide">
                   {services[active].title}
@@ -99,7 +105,7 @@ export default function ServicesSection() {
                 </p>
 
                 {services[active].note && (
-                  <p className="mt-4 text-red-500 font-semibold uppercase">
+                  <p className="mt-4 text-[#B62025] dark:text-[#FF4B4B] font-semibold uppercase">
                     {services[active].note}
                   </p>
                 )}
@@ -109,7 +115,7 @@ export default function ServicesSection() {
                 <span className="text-sm uppercase tracking-widest text-gray-400">
                   Price
                 </span>
-                <span className="text-4xl font-bold text-red-600">
+                <span className="text-4xl font-bold text-[#B62025] dark:text-[#FF4B4B]">
                   {services[active].price}
                 </span>
               </div>
@@ -123,7 +129,7 @@ export default function ServicesSection() {
         {/* BUNDLES */}
         <div className="mt-24 text-center">
           <h3 className="text-3xl uppercase tracking-widest font-bold mb-8">
-            Service <span className="text-red-600">Bundles</span>
+            Service <span className="text-[#B62025] dark:text-[#FF4B4B]">Bundles</span>
           </h3>
 
           <div className="max-w-4xl mx-auto divide-y divide-gray-700 text-left">
@@ -138,7 +144,7 @@ export default function ServicesSection() {
                 className="flex items-center justify-between py-5 uppercase tracking-wide"
               >
                 <span>{name}</span>
-                <span className="font-bold text-red-500">{price}</span>
+                <span className="font-bold text-[#B62025] dark:text-[#FF4B4B]">{price}</span>
               </div>
             ))}
           </div>

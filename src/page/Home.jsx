@@ -7,6 +7,9 @@ import Contact from "../components/Contact";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Gallery from "../components/Photo"
 import FetchGoogleReviews from "../components/Dymicreview"
+import BusinessGallery from "../components/BusinessGallery"
+import ReviewsCarousel from "../components/ReviewsCarousel"
+import MapSection from '../components/MapSection';
 const Home = () => {
     return (
         <div>
@@ -16,11 +19,15 @@ const Home = () => {
             <About />
             <WhyChooseUs />
             <Review />
+            {/* <BusinessGallery />
+            <ReviewsCarousel /> */}
+
             {/* <FetchGoogleReviews /> */}
             < Gallery />
           
            
             <Contact />
+            {/* <MapSection /> */}
         </div>
     )
 }

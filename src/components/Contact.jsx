@@ -1,54 +1,37 @@
-import React, { useState } from "react";
-import { FaPhoneAlt, FaMapMarkerAlt, FaClock, FaFacebookF, FaTiktok } from "react-icons/fa";
+import React from "react";
+import {
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaClock,
+  FaFacebookF,
+  FaTiktok,
+} from "react-icons/fa";
 
 export default function ContactSection() {
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    vehicle: "",
-    message: "",
-  });
-
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Updated WhatsApp number for Nottingham Carbon Cleaning Solutions
-    const number = "447752549740";
-    const text = `Name: ${form.name}%0APhone: ${form.phone}%0AVehicle: ${form.vehicle}%0AMessage: ${form.message}`;
-
-    window.open(`https://wa.me/${number}?text=${text}`, "_blank");
-  };
-
   return (
-    <section
-      id="contact"
-      className="bg-black text-white py-24 px-6"
-    >
+    <section id="contact" className="bg-black text-white py-24 px-6">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
 
         {/* LEFT — CONTACT INFO */}
         <div>
           <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-widest">
-            Get In <span className="text-[#B62025] dark:text-[#FF4B4B]">Touch</span>
+            Get In{" "}
+            <span className="text-[#B62025] dark:text-[#FF4B4B]">Touch</span>
           </h2>
 
           <div className="w-24 h-[3px] bg-[#B62025] dark:bg-[#FF4B4B] mt-4 mb-8" />
 
           <p className="text-[#C0C0C0] max-w-md leading-relaxed mb-10">
-            Speak directly with Nottingham Carbon Cleaning Solutions. No call centres, 
-            no delays — just honest advice and professional service.
+            Speak directly with Nottingham Carbon Cleaning Solutions. No call
+            centres, no delays — just honest advice and professional service.
           </p>
 
           {/* INFO BLOCKS */}
           <div className="space-y-6">
-
             <div className="flex gap-4 items-start">
               <FaMapMarkerAlt className="text-[#B62025] dark:text-[#FF4B4B] mt-1" />
               <p className="text-[#C0C0C0]">
-                Wendling Gardens<br />
+                Wendling Gardens <br />
                 Nottingham NG5 5TD, United Kingdom
               </p>
             </div>
@@ -94,75 +77,18 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* RIGHT — WHATSAPP FORM */}
-        <div className="border border-white/10 bg-[#0E0E0E] p-10 rounded-md shadow-lg">
-
-          <h3 className="text-2xl font-bold uppercase mb-2">
-            WhatsApp Enquiry
-          </h3>
-          <p className="text-[#868386] text-sm mb-8">
-            Send us a message and we’ll respond quickly.
-          </p>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-
-            <input
-              type="text"
-              name="name"
-              placeholder="Your name"
-              required
-              onChange={handleChange}
-              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm focus:outline-none focus:border-[#B62025] dark:focus:border-[#FF4B4B]"
-            />
-
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone number"
-              required
-              onChange={handleChange}
-              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm focus:outline-none focus:border-[#B62025] dark:focus:border-[#FF4B4B]"
-            />
-
-            <input
-              type="text"
-              name="vehicle"
-              placeholder="Vehicle registration"
-              onChange={handleChange}
-              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm focus:outline-none focus:border-[#B62025] dark:focus:border-[#FF4B4B]"
-            />
-
-            <textarea
-              name="message"
-              rows="4"
-              placeholder="How can we help?"
-              required
-              onChange={handleChange}
-              className="w-full bg-black border border-[#868386] px-4 py-3 text-sm focus:outline-none focus:border-[#B62025] dark:focus:border-[#FF4B4B]"
-            />
-
-            <button
-              type="submit"
-              className="
-                w-full py-3
-                bg-[#B62025]
-                dark:bg-[#FF4B4B]
-                hover:opacity-90
-                transition
-                uppercase tracking-wide font-semibold
-              "
-            >
-              Send via WhatsApp
-            </button>
-
-            <p className="text-xs text-[#868386] text-center">
-              Your details are used only to respond to your enquiry.
-            </p>
-             <p className="text-xs text-[#868386] text-center">
-            By submitting this form, you agree to us processing your details to respond to your enquiry. Your information is handled securely and in line with our Privacy Policy.
-            </p>
-          </form>
+        {/* RIGHT — GOOGLE MAP */}
+        <div className="border border-white/10 bg-[#0E0E0E] rounded-md shadow-lg overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2172.702841895239!2d-1.1526552999999997!3d53.00391639999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c1b0450d0975%3A0x2b2aab3feebcf3b1!2sNottingham%20Carbon%20Cleaning%20Solutions!5e1!3m2!1sen!2slk!4v1769797410042!5m2!1sen!2slk"
+            className="w-full h-[450px] grayscale hover:grayscale-0 transition duration-500"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
+
       </div>
     </section>
   );
