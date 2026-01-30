@@ -63,15 +63,7 @@ export default function Header() {
             </a>
 
             {/* WHATSAPP */}
-            <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden lg:flex items-center gap-2 border border-green-500 text-green-500 hover:bg-green-500 hover:text-white px-4 py-2 rounded-md text-sm font-bold transition"
-            >
-              <FaWhatsapp />
-              WhatsApp
-            </a>
+           
 
             {/* MOBILE MENU BUTTON */}
             <button

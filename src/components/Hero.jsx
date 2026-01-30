@@ -63,15 +63,7 @@ export default function HeroSection() {
           </p>
 
           {/* Service Area Badge */}
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="300"
-            className="inline-flex items-center gap-2 border border-gray-400/40 text-gray-300 px-5 py-2 rounded-full uppercase tracking-wide"
-          >
-            <FaMapMarkerAlt className="text-red-600" />
-            20-mile radius of NG5 5TD
-          </div>
-
+          
           {/* CTA Buttons */}
           <div
             data-aos="fade-up"
@@ -86,15 +78,7 @@ export default function HeroSection() {
               Call Now
             </a>
 
-            <a
-              href="https://wa.me/447752549740"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border border-gray-300 text-gray-300 hover:bg-gray-300 hover:text-black px-8 py-3 rounded-md text-lg font-semibold uppercase tracking-wide transition"
-            >
-              <FaWhatsapp />
-              WhatsApp
-            </a>
+           
           </div>
 
           {/* Feature Strip */}
