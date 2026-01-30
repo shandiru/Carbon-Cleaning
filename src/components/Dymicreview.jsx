@@ -2,13 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function ReviewsCarousel() {
   const trackRef = useRef(null);
+  const photoSliderRef = useRef(null);
   const animationRef = useRef(null);
   const [paused, setPaused] = useState(false);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [businessName, setBusinessName] = useState('');
+  const [businessPhotos, setBusinessPhotos] = useState([]);
   const [rating, setRating] = useState(0);
   const [totalReviews, setTotalReviews] = useState(0);
 
@@ -25,7 +28,8 @@ export default function ReviewsCarousel() {
       
       // CORS Proxy to bypass browser restrictions
       const corsProxy = 'https://api.allorigins.win/get?url=';
-      const googleApiUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=name,rating,reviews,user_ratings_total,formatted_address&key=${GOOGLE_API_KEY}`;
+      // Add 'photos' field to get ALL business images
+      const googleApiUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=name,rating,reviews,user_ratings_total,formatted_address,photos&key=${GOOGLE_API_KEY}`;
       
       const response = await fetch(corsProxy + encodeURIComponent(googleApiUrl));
       
@@ -52,16 +56,26 @@ export default function ReviewsCarousel() {
             month: 'short',
             year: 'numeric'
           }),
-          // Fix: Add size parameter to Google profile photo URL
           image: review.profile_photo_url ? `${review.profile_photo_url}=s100-c` : null
         }));
         
+        // Get ALL business photos from photos array
+        let photoUrls = [];
+        if (data.result.photos && data.result.photos.length > 0) {
+          // Convert ALL photo references to URLs
+          photoUrls = data.result.photos.map(photo => {
+            return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photo_reference=${photo.photo_reference}&key=${GOOGLE_API_KEY}`;
+          });
+        }
+        
         setReviews(transformedReviews);
         setBusinessName(data.result.name || '');
+        setBusinessPhotos(photoUrls);
         setRating(data.result.rating || 0);
         setTotalReviews(data.result.user_ratings_total || 0);
         
         console.log('✅ Loaded', transformedReviews.length, 'reviews');
+        console.log('🏢 Business Photos:', photoUrls.length, 'images');
       } else if (data.status === 'REQUEST_DENIED') {
         throw new Error('Places API not enabled. Check Google Cloud Console.');
       } else if (data.status === 'INVALID_REQUEST') {
@@ -85,6 +99,17 @@ export default function ReviewsCarousel() {
     return () => clearInterval(interval);
   }, []);
 
+  // Auto-slide photos every 5 seconds
+  useEffect(() => {
+    if (businessPhotos.length <= 1) return;
+    
+    const interval = setInterval(() => {
+      setCurrentPhotoIndex((prev) => (prev + 1) % businessPhotos.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [businessPhotos]);
+
   // Carousel auto-scroll animation
   useEffect(() => {
     const track = trackRef.current;
@@ -92,21 +117,29 @@ export default function ReviewsCarousel() {
 
     const autoScroll = () => {
       if (!paused) {
-        // Scroll by 1 pixel for smooth continuous movement
         track.scrollLeft += 1;
         
-        // Reset scroll position when reaching halfway point (for infinite loop)
         if (track.scrollLeft >= track.scrollWidth / 2) {
           track.scrollLeft = 0;
         }
       }
     };
 
-    // Run auto-scroll every 20ms for smooth animation
     const intervalId = setInterval(autoScroll, 20);
 
     return () => clearInterval(intervalId);
   }, [paused, reviews]);
+
+  // Photo navigation functions
+  const goToPrevPhoto = () => {
+    setCurrentPhotoIndex((prev) => 
+      prev === 0 ? businessPhotos.length - 1 : prev - 1
+    );
+  };
+
+  const goToNextPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev + 1) % businessPhotos.length);
+  };
 
   // Loading State
   if (loading) {
@@ -191,41 +224,154 @@ export default function ReviewsCarousel() {
 
   return (
     <section id="testimonials" className="bg-black py-24 text-white">
-      {/* HEADER */}
-      <div className="max-w-6xl mx-auto px-6 text-center mb-14">
-        <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-widest">
-          Customer <span className="text-red-600">Reviews</span>
-        </h2>
-        <div className="w-20 h-[3px] bg-red-600 mx-auto mt-4" />
-        
-        {businessName && (
-          <p className="text-gray-300 mt-4 text-lg font-medium">{businessName}</p>
-        )}
-        
-        {/* Overall Rating */}
-        <div className="flex items-center justify-center gap-4 mt-6">
-          <div className="flex items-center gap-2">
-            <span className="text-3xl font-bold text-red-600">{rating.toFixed(1)}</span>
-            <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  className={`w-5 h-5 ${i < Math.round(rating) ? 'text-yellow-400' : 'text-gray-600'}`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+      {/* BUSINESS PHOTO GALLERY SLIDER */}
+      {businessPhotos.length > 0 && (
+        <div className="max-w-7xl mx-auto px-6 mb-12">
+          <div className="relative h-[300px] md:h-[450px] rounded-2xl overflow-hidden border-2 border-red-600/20 shadow-2xl">
+            {/* Photo Slider */}
+            <div className="relative w-full h-full">
+              {businessPhotos.map((photoUrl, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${
+                    index === currentPhotoIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
                 >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
+                  <img 
+                    src={photoUrl} 
+                    alt={`${businessName} - Photo ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               ))}
+              
+              {/* Dark Overlay for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none"></div>
+            </div>
+
+            {/* Navigation Arrows - Only show if multiple photos */}
+            {businessPhotos.length > 1 && (
+              <>
+                <button
+                  onClick={goToPrevPhoto}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center backdrop-blur-sm transition-all hover:scale-110 z-10"
+                  aria-label="Previous photo"
+                >
+                  <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+
+                <button
+                  onClick={goToNextPhoto}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center backdrop-blur-sm transition-all hover:scale-110 z-10"
+                  aria-label="Next photo"
+                >
+                  <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+
+                {/* Photo Counter & Dots */}
+                <div className="absolute bottom-20 md:bottom-24 left-0 right-0 flex justify-center gap-2 z-10">
+                  {businessPhotos.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentPhotoIndex(index)}
+                      className={`transition-all ${
+                        index === currentPhotoIndex
+                          ? 'w-8 h-2 bg-red-600'
+                          : 'w-2 h-2 bg-white/40 hover:bg-white/60'
+                      } rounded-full`}
+                      aria-label={`Go to photo ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
+                {/* Photo Count Badge */}
+                <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm font-medium z-10">
+                  📸 {currentPhotoIndex + 1} / {businessPhotos.length}
+                </div>
+              </>
+            )}
+            
+            {/* Business Info Overlay */}
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-center z-10">
+              <h3 className="text-2xl md:text-4xl font-bold text-white mb-3 drop-shadow-lg">
+                {businessName}
+              </h3>
+              <div className="flex items-center justify-center gap-3 flex-wrap">
+                <span className="text-2xl font-bold text-red-600 drop-shadow-lg">
+                  {rating.toFixed(1)}
+                </span>
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className={`w-5 h-5 md:w-6 md:h-6 ${i < Math.round(rating) ? 'text-yellow-400' : 'text-gray-600'} drop-shadow-lg`}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-gray-300 drop-shadow-lg">({totalReviews} reviews)</span>
+              </div>
+              <p className="text-gray-300 mt-2 text-sm drop-shadow-lg">
+                ⭐ Verified Google Reviews
+              </p>
             </div>
           </div>
-          <span className="text-gray-400">({totalReviews} reviews)</span>
         </div>
-        
-        <p className="text-gray-400 mt-4">
-          Real reviews from Google ⭐
-        </p>
-      </div>
+      )}
+
+      {/* HEADER - Only show if no business photos */}
+      {businessPhotos.length === 0 && (
+        <div className="max-w-6xl mx-auto px-6 text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-widest">
+            Customer <span className="text-red-600">Reviews</span>
+          </h2>
+          <div className="w-20 h-[3px] bg-red-600 mx-auto mt-4" />
+          
+          {businessName && (
+            <p className="text-gray-300 mt-4 text-lg font-medium">{businessName}</p>
+          )}
+          
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="flex items-center gap-2">
+              <span className="text-3xl font-bold text-red-600">{rating.toFixed(1)}</span>
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    className={`w-5 h-5 ${i < Math.round(rating) ? 'text-yellow-400' : 'text-gray-600'}`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+            </div>
+            <span className="text-gray-400">({totalReviews} reviews)</span>
+          </div>
+          
+          <p className="text-gray-400 mt-4">
+            Real reviews from Google ⭐
+          </p>
+        </div>
+      )}
+
+      {/* Simple Reviews Header when photos exist */}
+      {businessPhotos.length > 0 && (
+        <div className="max-w-6xl mx-auto px-6 text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            What Our <span className="text-red-600">Customers Say</span>
+          </h2>
+          <div className="w-20 h-[3px] bg-red-600 mx-auto mt-4" />
+        </div>
+      )}
 
       {/* CAROUSEL WITH ARROWS */}
       <div className="relative max-w-[1400px] mx-auto">
@@ -271,13 +417,11 @@ export default function ReviewsCarousel() {
                   alt={review.name}
                   className="w-12 h-12 rounded-full border-2 border-red-600/30 object-cover bg-gray-800"
                   onError={(e) => {
-                    // Fallback to initials if image fails to load
                     e.target.style.display = 'none';
                     e.target.nextElementSibling.style.display = 'flex';
                   }}
                 />
               ) : null}
-              {/* Fallback Avatar with Initials */}
               <div 
                 className="w-12 h-12 rounded-full border-2 border-red-600/30 bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-lg"
                 style={{ display: review.image ? 'none' : 'flex' }}
