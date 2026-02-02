@@ -5,7 +5,7 @@ const GOOGLE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 const PLACE_ID = import.meta.env.VITE_PLACE_ID;
 const PLACES_BASE_URL = import.meta.env.VITE_GOOGLE_PLACES_URL;
 const PHOTO_BASE_URL = import.meta.env.VITE_GOOGLE_PHOTO_URL;
-const CORS_PROXY = import.meta.env.VITE_CORS_PROXY;
+const CORS_PROXY = "https://api.allorigins.win/get?url="
 
 export function useGoogleReviews() {
   const [data, setData] = useState({
