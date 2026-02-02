@@ -3,10 +3,20 @@ import { useGoogleReviews } from "../../Service/useGoogleReviews";
 import BusinessGallery from "./BusinessGallery";
 
 export default function ReviewsCarousel() {
-  const { reviews, businessPhotos, loading } = useGoogleReviews();
+  const { reviews, businessPhotos, loading, error } = useGoogleReviews();
   const trackRef = useRef(null);
   const [paused, setPaused] = useState(false);
   const [isReady, setIsReady] = useState(false);
+
+  // Debug logs
+  useEffect(() => {
+    console.log('ReviewsCarousel State:', { 
+      loading, 
+      reviewsCount: reviews?.length || 0,
+      photosCount: businessPhotos?.length || 0,
+      error 
+    });
+  }, [loading, reviews, businessPhotos, error]);
 
   // Wait for data to be fully loaded before starting animations
   useEffect(() => {
@@ -49,9 +59,24 @@ export default function ReviewsCarousel() {
     );
   }
 
-  // Only show "no reviews" if loading is done AND reviews are actually empty
-  // This prevents premature empty state during initial render
+  // Error state
+  if (error) {
+    return (
+      <div className="py-32 text-center text-white bg-black">
+        <p className="text-red-400 font-medium mb-2">⚠️ Unable to load reviews</p>
+        <p className="text-gray-500 text-xs">{error}</p>
+      </div>
+    );
+  }
 
+  // No data state - wait for re-render
+  if (!reviews || reviews.length === 0) {
+    return (
+      <div className="py-32 text-center text-white bg-black">
+        <p className="text-gray-400 font-medium">Loading reviews...</p>
+      </div>
+    );
+  }
 
   return (
     <section className="bg-black py-24 text-white overflow-hidden relative">
