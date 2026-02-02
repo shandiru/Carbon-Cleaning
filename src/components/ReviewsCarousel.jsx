@@ -3,7 +3,7 @@ import { useGoogleReviews } from "../../Service/useGoogleReviews";
 import BusinessGallery from "./BusinessGallery";
 
 export default function ReviewsCarousel() {
-  const { reviews, businessName, businessPhotos, rating, totalReviews, loading, error, refresh } = useGoogleReviews();
+  const { reviews, businessPhotos, loading } = useGoogleReviews();
   const trackRef = useRef(null);
   const [paused, setPaused] = useState(false);
 
@@ -35,9 +35,7 @@ export default function ReviewsCarousel() {
       {/* Decorative Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(182,32,37,0.05)_0%,_transparent_70%)] pointer-events-none" />
 
-      <BusinessGallery photos={businessPhotos} />
-
-      {/* Header Section */}
+      {/* 1. Header Section */}
       <div className="text-center mb-16 relative z-10">
         <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">
           Trusted <span className="text-[#B62025] dark:text-[#FF4B4B]">Quality</span>
@@ -49,7 +47,8 @@ export default function ReviewsCarousel() {
         </div>
       </div>
 
-      <div className="relative w-full mx-auto">
+      {/* 2. Reviews Carousel Section */}
+      <div className="relative w-full mx-auto mb-20"> {/* Added margin bottom */}
         <div 
           ref={trackRef}
           onMouseEnter={() => setPaused(true)}
@@ -61,7 +60,6 @@ export default function ReviewsCarousel() {
               key={i} 
               className="w-[360px] md:w-[420px] flex-shrink-0 bg-gradient-to-b from-[#111] to-[#050505] p-8 rounded-3xl border border-white/5 hover:border-[#B62025]/50 transition-all duration-500 flex flex-col justify-between min-h-[320px] shadow-2xl relative overflow-hidden group"
             >
-              {/* Decorative Quote Mark */}
               <div className="absolute top-6 right-8 text-[#B62025]/10 group-hover:text-[#B62025]/20 transition-colors">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H11.017V21H14.017ZM5.017 21L5.017 18C5.017 16.8954 5.91243 16 7.017 16H10.017C10.5693 16 11.017 15.5523 11.017 15V9C11.017 8.44772 10.5693 8 10.017 8H7.017C6.46472 8 6.017 8.44772 6.017 9V12C6.017 12.5523 5.5693 13 5.017 13H2.017V21H5.017Z"/></svg>
               </div>
@@ -88,15 +86,10 @@ export default function ReviewsCarousel() {
                 </p>
               </div>
 
-              {/* Verified Bottom Bar */}
               <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between relative z-10">
                 <div className="flex items-center gap-3">
                   <div className="p-1 bg-white rounded-md">
-                    <img 
-                      src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
-                      alt="Google" 
-                      className="h-3 w-auto" 
-                    />
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-3 w-auto" />
                   </div>
                   <span className="text-[9px] uppercase font-black text-gray-500 tracking-[0.2em]">Verified Review</span>
                 </div>
@@ -109,6 +102,11 @@ export default function ReviewsCarousel() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* 3. Business Gallery (Now Under the Reviews) */}
+      <div className="relative z-10 px-4">
+        <BusinessGallery photos={businessPhotos} />
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `

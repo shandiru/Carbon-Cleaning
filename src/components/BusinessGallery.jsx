@@ -3,7 +3,6 @@ import React, { useState } from "react";
 export default function BusinessGallery({ photos = [] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Calculate how many slides to show (1 on mobile, 3 on desktop)
   const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 768;
   const maxIndex = isDesktop ? Math.max(0, photos.length - 3) : photos.length - 1;
 
@@ -18,9 +17,21 @@ export default function BusinessGallery({ photos = [] }) {
   if (!photos || photos.length === 0) return null;
 
   return (
-    <div className="max-w-7xl mx-auto px-6 mb-12">
+    <div className="max-w-7xl mx-auto px-6 mb-12 bg-black">
+      {/* --- Added Gallery Heading --- */}
+      <div className="text-center mb-10 relative z-10">
+        <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">
+          Our <span className="text-[#B62025] dark:text-[#FF4B4B]">Gallery</span>
+        </h2>
+        <div className="flex items-center justify-center gap-3">
+          <div className="h-[1px] w-8 bg-[#B62025]/50"></div>
+          <span className="text-[10px] font-bold tracking-[0.3em] text-gray-400 uppercase">Visual Excellence</span>
+          <div className="h-[1px] w-8 bg-[#B62025]/50"></div>
+        </div>
+      </div>
+      {/* --- End of Heading --- */}
+
       <div className="relative group">
-        
         {/* Main Carousel Container */}
         <div className="overflow-hidden rounded-2xl border-2 border-white/10 shadow-2xl bg-black">
           <div 
@@ -44,7 +55,7 @@ export default function BusinessGallery({ photos = [] }) {
           </div>
         </div>
 
-        {/* Navigation Arrows - Using Brand Red */}
+        {/* Navigation Arrows */}
         {photos.length > 1 && (
           <>
             <button 
@@ -70,7 +81,7 @@ export default function BusinessGallery({ photos = [] }) {
         )}
       </div>
 
-      {/* Progress Dots - Using Brand Red */}
+      {/* Progress Dots */}
       {photos.length > 1 && (
         <div className="flex justify-center gap-2 mt-6">
           {(isDesktop ? photos.slice(0, photos.length - 2) : photos).map((_, i) => (
