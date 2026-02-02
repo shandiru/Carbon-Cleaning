@@ -39,20 +39,20 @@ export default function ReviewsCarousel() {
     return () => clearInterval(intervalId);
   }, [isReady, paused, reviews.length]);
 
-  if (loading) return (
-    <div className="py-32 text-center text-white bg-black">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-[#B62025] mx-auto mb-4"></div>
-      <p className="text-gray-400 font-medium tracking-widest uppercase text-xs">Verifying Excellence...</p>
-    </div>
-  );
-
-  // Show error state if no reviews after loading
-  if (!loading && reviews.length === 0) {
+  // Loading state
+  if (loading) {
     return (
       <div className="py-32 text-center text-white bg-black">
-        <p className="text-gray-400 font-medium">No reviews available</p>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-[#B62025] mx-auto mb-4"></div>
+        <p className="text-gray-400 font-medium tracking-widest uppercase text-xs">Verifying Excellence...</p>
       </div>
     );
+  }
+
+  // Only show "no reviews" if loading is done AND reviews are actually empty
+  // This prevents premature empty state during initial render
+  if (reviews.length === 0) {
+    return null; // Don't show anything if no data - component will re-render when data arrives
   }
 
   return (
