@@ -51,9 +51,7 @@ export default function ReviewsCarousel() {
 
   // Only show "no reviews" if loading is done AND reviews are actually empty
   // This prevents premature empty state during initial render
-  if (reviews.length === 0) {
-    return null; // Don't show anything if no data - component will re-render when data arrives
-  }
+
 
   return (
     <section className="bg-black py-24 text-white overflow-hidden relative">
