@@ -18,12 +18,13 @@ const Home = () => {
                
             <About />
             <WhyChooseUs />
-            <Review />
-            {/* <BusinessGallery />
-            <ReviewsCarousel /> */}
+            {/* <Review /> */}
+           
+            <ReviewsCarousel />
+             
 
             {/* <FetchGoogleReviews /> */}
-            < Gallery />
+            {/* < Gallery /> */}
           
            
             <Contact />
