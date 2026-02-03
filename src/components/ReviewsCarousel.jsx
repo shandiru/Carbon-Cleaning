@@ -36,7 +36,7 @@ export default function ReviewsCarousel() {
       </div>
 
       <div 
-        className="relative z-10 overflow-hidden py-10"
+        className="relative z-10 py-10 select-none pointer-events-none"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -50,7 +50,7 @@ export default function ReviewsCarousel() {
               key={i}
               className="group w-[340px] md:w-[420px] flex-shrink-0 rounded-3xl bg-gradient-to-b from-[#121212] to-[#050505]
               border border-white/5 p-7 shadow-[0_20px_50px_rgba(0,0,0,0.8)]
-              hover:border-[#B62025]/40 transition-all duration-500 flex flex-col"
+              hover:border-[#B62025]/40 transition-all duration-500 flex flex-col pointer-events-auto"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#B62025] to-[#ff4b4b]
