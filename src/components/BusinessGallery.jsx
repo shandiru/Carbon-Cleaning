@@ -17,7 +17,7 @@ export default function BusinessGallery({ photos = [] }) {
   if (!photos || photos.length === 0) return null;
 
   return (
-    <div className="max-w-7xl mx-auto px-6 mb-12 bg-black">
+    <div className="max-w-7xl mx-auto px-6 mb-12 bg-black" id="gallery">
       {/* --- Added Gallery Heading --- */}
       <div className="text-center mb-10 relative z-10">
         <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 text-white">
