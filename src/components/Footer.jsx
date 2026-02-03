@@ -37,6 +37,34 @@ export default function Footer() {
           </p>
         </div>
       </div>
+      {/* ================= DISCOUNT BANNER ================= */}
+      <div className="border-b border-[#1C1C1C] bg-[#050505] py-10">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            {/* Left Side: The Offer */}
+            <div className="flex items-center gap-6">
+              <div className="hidden md:block w-[2px] h-12 bg-[#B62025] dark:bg-[#FF4B4B]"></div>
+              <div className="text-center md:text-left">
+                <h3 className="text-2xl md:text-3xl font-bold tracking-widest uppercase italic">
+                  NHS & FIREFIGHTERS <span className="text-[#B62025] dark:text-[#FF4B4B]">SAVE 10%</span>
+                </h3>
+                <p className="text-[#868386] text-sm uppercase tracking-[0.2em] mt-1">
+                  On all carbon cleaning services
+                </p>
+              </div>
+            </div>
+
+            {/* Right Side: The Instruction */}
+            <div className="px-8 py-3 border border-[#B62025] dark:border-[#FF4B4B] rounded-full">
+              <p className="text-white text-sm md:text-base font-medium tracking-wide">
+                MENTION WHEN BOOKING
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 py-16 grid gap-12 md:grid-cols-3">
         {/* 1. SERVICES COLUMN */}
