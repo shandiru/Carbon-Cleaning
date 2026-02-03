@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useGoogleReviews } from "../../Service/useGoogleReviews";
 import BusinessGallery from "./BusinessGallery";
 
@@ -42,17 +42,15 @@ export default function ReviewsCarousel() {
       >
         <div 
           className={`flex gap-8 px-6 ${paused ? '' : 'animate-scroll'}`}
-          style={{
-            width: 'max-content',
-          }}
+          style={{ width: 'max-content' }}
         >
-          {/* Infinite scroll - 3 times duplicate for smooth loop */}
+          {/* Infinite scroll - 3 times duplicate for seamless loop */}
           {[...reviews, ...reviews, ...reviews].map((r, i) => (
             <div
               key={i}
               className="group w-[340px] md:w-[420px] flex-shrink-0 rounded-3xl bg-gradient-to-b from-[#121212] to-[#050505]
               border border-white/5 p-7 shadow-[0_20px_50px_rgba(0,0,0,0.8)]
-              hover:border-[#B62025]/40 transition-all duration-500"
+              hover:border-[#B62025]/40 transition-all duration-500 flex flex-col"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#B62025] to-[#ff4b4b]
@@ -70,7 +68,7 @@ export default function ReviewsCarousel() {
                 {"☆".repeat(5 - r.rating)}
               </div>
 
-              <p className="text-sm leading-relaxed text-gray-400 italic group-hover:text-gray-200 transition">
+              <p className="text-sm leading-relaxed text-gray-400 italic group-hover:text-gray-200 transition flex-grow">
                 "{r.text}"
               </p>
 
@@ -102,7 +100,7 @@ export default function ReviewsCarousel() {
         }
         
         .animate-scroll {
-          animation: scroll 40s linear infinite;
+          animation: scroll 60s linear infinite;
         }
         
         .animate-scroll:hover {
