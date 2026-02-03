@@ -17,7 +17,7 @@ export function useGoogleReviews() {
     const controller = new AbortController();
 
     const fetchGoogleReviews = async () => {
-      console.log("=== FETCH START ===");
+   
       
       try {
         // Vercel serverless function call pannurathu
@@ -25,23 +25,22 @@ export function useGoogleReviews() {
           signal: controller.signal,
         });
 
-        console.log("Response Status:", response.status);
-        console.log("Response OK:", response.ok);
+      
+     
 
         if (!response.ok) {
           throw new Error(`API failed with status: ${response.status}`);
         }
 
         const apiData = await response.json();
-        console.log("API Data:", apiData);
+     
 
         if (apiData.status !== "OK") {
           throw new Error(apiData.error_message || `API status: ${apiData.status}`);
         }
 
         const resultObj = apiData.result || {};
-        console.log("Result Object:", resultObj);
-
+      
         // Reviews mapping
         const reviews = (resultObj.reviews || []).map(r => ({
           name: r.author_name,
@@ -70,20 +69,17 @@ export function useGoogleReviews() {
           error: null,
         };
 
-        console.log("=== FETCH SUCCESS ===");
-        console.log("Final Data:", finalData);
+     
 
         setData(finalData);
 
       } catch (err) {
         if (err.name === "AbortError") {
-          console.log("=== FETCH ABORTED ===");
+        
           return;
         }
 
-        console.error("=== FETCH ERROR ===");
-        console.error("Error:", err.message);
-
+      
         setData(prev => ({
           ...prev,
           loading: false,
