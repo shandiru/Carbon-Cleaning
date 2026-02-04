@@ -29,9 +29,9 @@ export default function Footer() {
       <div className="border-b border-[#1C1C1C] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold tracking-[0.2em] uppercase mb-4">
-            Nottingham Carbon <span className="text-[#B62025] dark:text-[#FF4B4B]">Cleaning</span>
+            Nottingham Carbon <span className="text-[#B62025]">Cleaning</span>
           </h2>
-          <div className="h-1 w-24 bg-[#B62025] dark:bg-[#FF4B4B] mx-auto mb-6"></div>
+          <div className="h-1 w-24 bg-[#B62025]  mx-auto mb-6"></div>
           <p className="text-[#C0C0C0] text-lg md:text-xl max-w-2xl mx-auto font-light tracking-wide">
             Performance tuning, emissions solutions & professional carbon cleaning services.
           </p>
@@ -44,10 +44,10 @@ export default function Footer() {
 
             {/* Left Side: The Offer */}
             <div className="flex items-center gap-6">
-              <div className="hidden md:block w-[2px] h-12 bg-[#B62025] dark:bg-[#FF4B4B]"></div>
+              <div className="hidden md:block w-[2px] h-12 bg-[#B62025] "></div>
               <div className="text-center md:text-left">
                 <h3 className="text-2xl md:text-3xl font-bold tracking-widest uppercase italic">
-                  NHS & FIREFIGHTERS <span className="text-[#B62025] dark:text-[#FF4B4B]">SAVE 10%</span>
+                  NHS & FIREFIGHTERS <span className="text-[#B62025] ">SAVE 10%</span>
                 </h3>
                 <p className="text-[#868386] text-sm uppercase tracking-[0.2em] mt-1">
                   On all carbon cleaning services
@@ -80,7 +80,7 @@ export default function Footer() {
             {services.map((service, index) => (
               <li key={index} className="group">
                 <a href="#services" className="flex items-center gap-2 text-[#868386] hover:text-white transition-colors text-base md:text-lg">
-                  <ChevronRight size={16} className="text-[#B62025] dark:text-[#FF4B4B] group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight size={16} className="text-[#B62025]  group-hover:translate-x-1 transition-transform" />
                   {service}
                 </a>
               </li>
@@ -93,17 +93,17 @@ export default function Footer() {
           <h3 className="tracking-wide text-xl font-semibold mb-8">Contact Details</h3>
           <div className="space-y-6 text-base md:text-lg text-[#868386] mb-10">
             <div className="flex gap-4 items-start group">
-              <MapPin size={22} className="text-[#B62025] dark:text-[#FF4B4B] mt-1 shrink-0 group-hover:scale-110 transition-transform" />
+              <MapPin size={22} className="text-[#B62025]  mt-1 shrink-0 group-hover:scale-110 transition-transform" />
               <p className="leading-relaxed group-hover:text-white transition-colors text-left">
                 Wendling Gardens, Nottingham <br /> NG5 5TD, United Kingdom
               </p>
             </div>
             <div className="flex gap-4 items-center group">
-              <Phone size={22} className="text-[#B62025] dark:text-[#FF4B4B] shrink-0 group-hover:scale-110 transition-transform" />
+              <Phone size={22} className="text-[#B62025]  shrink-0 group-hover:scale-110 transition-transform" />
               <a href="tel:+447752549740" className="hover:text-white transition-colors">+44 7752 549740</a>
             </div>
             <div className="flex gap-4 items-center group">
-              <Mail size={22} className="text-[#B62025] dark:text-[#FF4B4B] shrink-0 group-hover:scale-110 transition-transform" />
+              <Mail size={22} className="text-[#B62025]  shrink-0 group-hover:scale-110 transition-transform" />
               <a href="mailto:na@gmail.com" className="hover:text-white transition-colors">na@gmail.com</a>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function Footer() {
                 href="https://web.facebook.com/NottinghamCarbonCleaningSolutions/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border border-[#B62025] dark:border-[#FF4B4B] flex items-center justify-center text-white hover:bg-[#B62025] dark:hover:bg-[#FF4B4B] transition-all duration-300 shadow-[0_0_15px_rgba(182,32,37,0.2)]"
+                className="w-12 h-12 rounded-full border border-[#B62025]  flex items-center justify-center text-white hover:bg-[#B62025] transition-all duration-300 shadow-[0_0_15px_rgba(182,32,37,0.2)]"
               >
                 <Facebook size={22} fill="currentColor" />
               </a>
@@ -126,7 +126,7 @@ export default function Footer() {
                 href="https://www.tiktok.com/@nottingham.carbon?_r=1&_t=ZN-93QdshQYjsU"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border border-[#B62025] dark:border-[#FF4B4B] flex items-center justify-center text-white hover:bg-[#B62025] dark:hover:bg-[#FF4B4B] transition-all duration-300 shadow-[0_0_15px_rgba(182,32,37,0.2)]"
+                className="w-12 h-12 rounded-full border border-[#B62025]  flex items-center justify-center text-white hover:bg-[#B62025]  transition-all duration-300 shadow-[0_0_15px_rgba(182,32,37,0.2)]"
               >
                 <TikTokIcon size={22} />
               </a>
@@ -138,11 +138,11 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start">
           <h3 className="tracking-wide text-xl font-semibold mb-8">Legal Information</h3>
           <div className="flex flex-col gap-4 text-base text-[#868386]">
-            <Link to="/privacy-policy" className="hover:text-[#B62025] dark:text-[#FF4B4B] transition-colors flex items-center gap-3">
-              <span className="w-1.5 h-1.5 bg-[#B62025] dark:bg-[#FF4B4B] rounded-full"></span> Privacy Policy
+            <Link to="/privacy-policy" className="hover:text-[#B62025]  transition-colors flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-[#B62025]  rounded-full"></span> Privacy Policy
             </Link>
-            <Link to="/terms-conditions" className="hover:text-[#B62025] dark:text-[#FF4B4B] transition-colors flex items-center gap-3">
-              <span className="w-1.5 h-1.5 bg-[#B62025] dark:bg-[#FF4B4B] rounded-full"></span> Terms & Conditions
+            <Link to="/terms-conditions" className="hover:text-[#B62025]  transition-colors flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-[#B62025]  rounded-full"></span> Terms & Conditions
             </Link>
           </div>
         </div>
@@ -155,7 +155,7 @@ export default function Footer() {
             &copy; {currentYear} <span className="text-white font-medium">Nottingham Carbon Cleaning</span>. All rights reserved.
           </p>
           <p className="text-[#868386] text-sm md:text-base tracking-wide">
-            Powered by <a href="https://www.ansely.co.uk/" target="_blank" rel="noopener noreferrer" className="text-[#B62025] dark:text-[#FF4B4B] hover:text-white font-bold transition-colors ml-1 uppercase">Ansely</a>
+            Powered by <a href="https://www.ansely.co.uk/" target="_blank" rel="noopener noreferrer" className="text-[#B62025] hover:text-white font-bold transition-colors ml-1 uppercase">Ansely</a>
           </p>
         </div>
       </div>

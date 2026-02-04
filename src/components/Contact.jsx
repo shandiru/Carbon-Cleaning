@@ -16,10 +16,10 @@ export default function ContactSection() {
         <div>
           <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-widest">
             Get In{" "}
-            <span className="text-[#B62025] dark:text-[#FF4B4B]">Touch</span>
+            <span className="text-[#B62025] ">Touch</span>
           </h2>
 
-          <div className="w-24 h-[3px] bg-[#B62025] dark:bg-[#FF4B4B] mt-4 mb-8" />
+          <div className="w-24 h-[3px] bg-[#B62025]  mt-4 mb-8" />
 
           <p className="text-[#C0C0C0] max-w-md leading-relaxed mb-10">
             Speak directly with Nottingham Carbon Cleaning Solutions. No call
@@ -29,7 +29,7 @@ export default function ContactSection() {
           {/* INFO BLOCKS */}
           <div className="space-y-6">
             <div className="flex gap-4 items-start">
-              <FaMapMarkerAlt className="text-[#B62025] dark:text-[#FF4B4B] mt-1" />
+              <FaMapMarkerAlt className="text-[#B62025]  mt-1" />
               <p className="text-[#C0C0C0]">
                 Wendling Gardens <br />
                 Nottingham NG5 5TD, United Kingdom
@@ -37,17 +37,17 @@ export default function ContactSection() {
             </div>
 
             <div className="flex gap-4 items-center">
-              <FaPhoneAlt className="text-[#B62025] dark:text-[#FF4B4B]" />
+              <FaPhoneAlt className="text-[#B62025] " />
               <a
                 href="tel:+447752549740"
-                className="hover:text-[#B62025] dark:hover:text-[#FF4B4B] transition"
+                className="hover:text-[#B62025]  transition"
               >
                 07752 549740
               </a>
             </div>
 
             <div className="flex gap-4 items-start">
-              <FaClock className="text-[#B62025] dark:text-[#FF4B4B] mt-1" />
+              <FaClock className="text-[#B62025] mt-1" />
               <ul className="text-[#C0C0C0] text-sm space-y-1">
                 <li>Mon – Fri: 9:00 AM – 5:00 PM</li>
                 <li>Saturday: 9:00 AM – 2:00 PM</li>
@@ -62,7 +62,7 @@ export default function ContactSection() {
               href="https://web.facebook.com/NottinghamCarbonCleaningSolutions/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#B62025] dark:hover:text-[#FF4B4B] transition"
+              className="hover:text-[#B62025]  transition"
             >
               <FaFacebookF />
             </a>
@@ -70,7 +70,7 @@ export default function ContactSection() {
               href="https://www.tiktok.com/@nottingham.carbon?_r=1&_t=ZN-93QdshQYjsU"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#B62025] dark:hover:text-[#FF4B4B] transition"
+              className="hover:text-[#B62025]  transition"
             >
               <FaTiktok />
             </a>

@@ -54,7 +54,7 @@ export default function ServicesSection() {
         {/* HEADER */}
         <div className="mb-16 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold uppercase tracking-widest">
-            Service <span className="text-[#B62025] dark:text-[#FF4B4B]">Breakdown</span>
+            Service <span className="text-[#B62025] ">Breakdown</span>
           </h2>
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
             Fully mobile engine carbon cleaning within 20 miles of NG5 5TD.
@@ -82,7 +82,7 @@ export default function ServicesSection() {
                 className={`w-full text-left uppercase tracking-wide text-xl sm:text-2xl font-semibold py-4 border-l-4 pl-4 transition-all
                   ${
                     active === i
-                      ? "border-[#B62025] dark:border-[#FF4B4B] text-white bg-[#B62025]/10 dark:bg-[#FF4B4B]/10"
+                      ? "border-[#B62025]  text-white bg-[#B62025]/10 "
                       : "border-gray-700 text-gray-500 hover:text-white"
                   }
                 `}
@@ -105,7 +105,7 @@ export default function ServicesSection() {
                 </p>
 
                 {services[active].note && (
-                  <p className="mt-4 text-[#B62025] dark:text-[#FF4B4B] font-semibold uppercase">
+                  <p className="mt-4 text-[#B62025]  font-semibold uppercase">
                     {services[active].note}
                   </p>
                 )}
@@ -115,7 +115,7 @@ export default function ServicesSection() {
                 <span className="text-sm uppercase tracking-widest text-gray-400">
                   Price
                 </span>
-                <span className="text-4xl font-bold text-[#B62025] dark:text-[#FF4B4B]">
+                <span className="text-4xl font-bold text-[#B62025] ">
                   {services[active].price}
                 </span>
               </div>
@@ -129,7 +129,7 @@ export default function ServicesSection() {
         {/* BUNDLES */}
         <div className="mt-24 text-center">
           <h3 className="text-3xl uppercase tracking-widest font-bold mb-8">
-            Service <span className="text-[#B62025] dark:text-[#FF4B4B]">Bundles</span>
+            Service <span className="text-[#B62025] ">Bundles</span>
           </h3>
 
           <div className="max-w-4xl mx-auto divide-y divide-gray-700 text-left">
@@ -144,7 +144,7 @@ export default function ServicesSection() {
                 className="flex items-center justify-between py-5 uppercase tracking-wide"
               >
                 <span>{name}</span>
-                <span className="font-bold text-[#B62025] dark:text-[#FF4B4B]">{price}</span>
+                <span className="font-bold text-[#B62025] ">{price}</span>
               </div>
             ))}
           </div>

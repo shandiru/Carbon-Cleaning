@@ -7,7 +7,7 @@ const MapSection = () => {
         
         {/* Left Side: Text Details */}
         <div className="w-full lg:w-1/2 space-y-6">
-          <h2 className="text-[#B62025] dark:text-[#FF4B4B] text-4xl font-bold tracking-tight">
+          <h2 className="text-[#B62025]  text-4xl font-bold tracking-tight">
             Visit Us
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed">

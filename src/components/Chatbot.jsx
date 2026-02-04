@@ -56,7 +56,7 @@ function Chatbot() {
       {isOpen && (
         <div
           className="fixed bottom-6 right-6 w-80 md:w-96 h-[550px]
-          bg-white dark:bg-black rounded-2xl shadow-2xl
+          bg-white  rounded-2xl shadow-2xl
           flex flex-col z-50 overflow-hidden border border-gray-200
           animate-[fadeIn_0.25s_ease-out]"
         >
@@ -80,7 +80,7 @@ function Chatbot() {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-black">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 ">
             {messages.map((msg, i) => (
               <div
                 key={i}
@@ -126,8 +126,8 @@ function Chatbot() {
           </div>
 
           {/* Footer */}
-          <div className="p-3 bg-white dark:bg-zinc-900 border-t">
-            {messages.length < 3 && (
+          <div className="p-3 bg-white  border-t">
+            { (
               <div className="flex gap-2 overflow-x-auto pb-2 mb-2 no-scrollbar">
                 {QUICK_REPLIES.map(q => (
                   <button
