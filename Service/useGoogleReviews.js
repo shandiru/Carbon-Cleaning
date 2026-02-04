@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-const PHOTO_BASE_URL = import.meta.env.VITE_GOOGLE_PHOTO_URL;
-
 export function useGoogleReviews() {
   const [data, setData] = useState({
     reviews: [],
@@ -17,69 +15,43 @@ export function useGoogleReviews() {
     const controller = new AbortController();
 
     const fetchGoogleReviews = async () => {
-   
-      
       try {
-        // Vercel serverless function call pannurathu
-        const response = await fetch('/api/google-reviews', {
+        const businessName = import.meta.env.VITE_BUSINESS_NAME;
+        const apiUrl = import.meta.env.VITE_LARAVEL_API_URL;
+
+        // Laravel API call
+        const response = await fetch(`${apiUrl}/google-reviews`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ business_name: businessName }),
           signal: controller.signal,
         });
-
-      
-     
 
         if (!response.ok) {
           throw new Error(`API failed with status: ${response.status}`);
         }
 
-        const apiData = await response.json();
-     
+        const result = await response.json();
 
-        if (apiData.status !== "OK") {
-          throw new Error(apiData.error_message || `API status: ${apiData.status}`);
+        if (!result.success) {
+          throw new Error(result.message || 'Failed to fetch reviews');
         }
 
-        const resultObj = apiData.result || {};
-      
-        // Reviews mapping
-        const reviews = (resultObj.reviews || []).map(r => ({
-          name: r.author_name,
-          text: r.text,
-          rating: r.rating,
-          date: new Date(r.time * 1000).toLocaleDateString("en-GB", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-          }),
-        }));
-
-        // Photos mapping
-        const GOOGLE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
-        const photos = (resultObj.photos || []).map(photo =>
-          `${PHOTO_BASE_URL}?maxwidth=1200&photo_reference=${photo.photo_reference}&key=${GOOGLE_API_KEY}`
-        );
-
-        const finalData = {
-          reviews,
-          businessName: resultObj.name || "Business",
-          businessPhotos: photos,
-          rating: resultObj.rating || 0,
-          totalReviews: resultObj.user_ratings_total || 0,
+        setData({
+          reviews: result.data.reviews,
+          businessName: result.data.businessName,
+          businessPhotos: result.data.photos,
+          rating: result.data.rating,
+          totalReviews: result.data.totalReviews,
           loading: false,
           error: null,
-        };
-
-     
-
-        setData(finalData);
+        });
 
       } catch (err) {
-        if (err.name === "AbortError") {
-        
-          return;
-        }
+        if (err.name === "AbortError") return;
 
-      
         setData(prev => ({
           ...prev,
           loading: false,
