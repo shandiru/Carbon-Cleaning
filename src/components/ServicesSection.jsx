@@ -136,8 +136,8 @@ export default function ServicesSection() {
             {[
               ["Carbon Clean + Forced Regen", "£130"],
               ["360 Clean + Forced Regen", "£150"],
-              ["DPF Clean + Carbon Clean", "£340"],
-              ["DPF Clean + Carbon Clean + Fuel Treatment", "£350"],
+              ["DPF Clean + Carbon Clean", "£350"],
+              ["DPF Clean + Carbon Clean + Fuel Treatment", "£360"],
             ].map(([name, price], i) => (
               <div
                 key={i}
